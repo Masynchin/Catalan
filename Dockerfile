@@ -8,4 +8,4 @@ FROM debian:buster-slim AS run
 
 COPY --from=build main .
 
-CMD [ "./main" ]
+ENTRYPOINT [ "./main" ]
