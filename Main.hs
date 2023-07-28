@@ -32,5 +32,11 @@ nextColumn = accumulate
 simulate :: [Int] -> [Int]
 simulate (x:xs) = x : simulate (nextColumn xs)
 
+triangle :: [[Int]]
+triangle = triangle' firstColumn
+
+triangle' :: [Int] -> [[Int]]
+triangle' col = col : (triangle' . nextColumn . tail) col
+
 coeffs :: [Int]
-coeffs = simulate firstColumn
+coeffs = map (!! 0) triangle
