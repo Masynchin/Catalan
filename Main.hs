@@ -29,9 +29,6 @@ firstColumn = repeat 1
 nextColumn :: [Int] -> [Int]
 nextColumn = accumulate
 
-simulate :: [Int] -> [Int]
-simulate (x:xs) = x : simulate (nextColumn xs)
-
 triangle :: [[Int]]
 triangle = triangle' firstColumn
 
