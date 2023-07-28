@@ -1,11 +1,11 @@
 FROM haskell:9.4.5-slim-buster AS build
 
-COPY main.hs .
+COPY Main.hs .
 
-RUN ghc main.hs
+RUN ghc Main.hs
 
 FROM debian:buster-slim AS run
 
-COPY --from=build main .
+COPY --from=build Main .
 
-ENTRYPOINT [ "./main" ]
+ENTRYPOINT [ "./Main" ]
