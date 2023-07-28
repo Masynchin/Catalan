@@ -12,7 +12,7 @@ main =
   >>= print
 
 prog :: Int -> [Int]
-prog n = take n coeffs
+prog n = take n calatans
 
 parseArgs :: [String] -> Maybe Int
 parseArgs = listToMaybe . mapMaybe tryToInt
@@ -32,5 +32,5 @@ triangle = triangle' firstColumn
 triangle' :: [Int] -> [[Int]]
 triangle' col = col : (triangle' . nextColumn . tail) col
 
-coeffs :: [Int]
-coeffs = map (!! 0) triangle
+calatans :: [Int]
+calatans = map (!! 0) triangle
