@@ -12,7 +12,7 @@ main =
   >>= print
 
 prog :: Int -> [Int]
-prog n = take n $ coeffs
+prog n = take n coeffs
 
 parseArgs :: [String] -> Maybe Int
 parseArgs = listToMaybe . mapMaybe tryToInt
