@@ -1,3 +1,4 @@
+import Control.Monad (ap)
 import Data.Functor ((<&>))
 import Data.Maybe (fromMaybe, listToMaybe, mapMaybe)
 import System.Environment (getArgs)
@@ -30,7 +31,7 @@ triangle :: [[Int]]
 triangle = triangle' firstColumn
 
 triangle' :: [Int] -> [[Int]]
-triangle' col = col : (triangle' . nextColumn . tail) col
+triangle' = ap (:) (triangle' . nextColumn . tail)
 
 calatans :: [Int]
 calatans = map (!! 0) triangle
