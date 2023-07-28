@@ -20,14 +20,11 @@ parseArgs = listToMaybe . mapMaybe tryToInt
 tryToInt :: String -> Maybe Int
 tryToInt = readMaybe
 
-accumulate :: [Int] -> [Int]
-accumulate = scanl1 (+)
-
 firstColumn :: [Int]
 firstColumn = repeat 1
 
 nextColumn :: [Int] -> [Int]
-nextColumn = accumulate
+nextColumn = scanl1 (+)
 
 triangle :: [[Int]]
 triangle = triangle' firstColumn
